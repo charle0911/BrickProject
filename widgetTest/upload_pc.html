@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="us">
+	<head>
+	<meta charset="utf-8">
+	<title>jQuery UI Example Page</title>
+	<link href="css/custom-theme/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+	<script src="js/jquery-1.9.1.js"></script>
+	<script src="js/jquery-ui-1.10.3.custom.js"></script>
+	<script>
+
+		
+		$(function() {
+			$( "#tabs" ).tabs();
+			$( "#button" ).button();
+				}
+			);
+	</script>
+	<style type ="text/css">
+		body{
+			font: 62.5% "Trebuchet MS", sans-serif;
+			margin: 50px;
+		}
+		#uploadHeadDiv{
+			position: relative;
+			left : 30px;
+		}
+		#uploadHead{
+			left : 30px;
+			color: #333;
+			font-size: 5.2em;
+			font-weight: bold;
+			letter-spacing: -3px;
+			margin-bottom: 0px;
+		}
+		#uploadHead2{
+			font-size: 2em;
+			margin-bottom: 1em;
+			color: #666;
+			font-family: 'Warnock Pro','Goudy Old Style','Palatino','Book Antiqua', Georgia, serif;
+			font-style: italic;
+			font-weight: normal;
+		}
+		.fakewindowcontain .ui-widget-overlay {
+					position: absolute;
+						
+				}
+		.site1{
+			position: relative;
+			top : 5ex;
+			left : 4ex;
+		}
+		.tabsite{
+			position: relative;
+			left: 30px;
+		}
+		.lisite{
+			position: relative;
+		}
+		.lisite2{
+			position: relative;
+			left : 15px;
+		}
+		.lisite3{
+			position: relative;
+			left : 25px;
+		}
+		.mainBody{
+			position: relative;
+			top : -30px;
+		}
+		.link{
+			position: relative;
+			float : bottom right;
+			top : -90px;
+			right : -88%;
+		}
+		.linka{
+			width:70px;
+			color: #666;
+			display: block;
+			font-size: 1.75em;
+			text-align: center;
+			text-decoration: none;
+		}
+		.linka:hover{
+			width:70px;
+			color: white;
+			background : yellow;
+			display: block;
+			font-size: 1.75em;
+			text-align: center;
+			text-decoration: none;
+		}
+		#tabs{
+			position: relative;
+			top : -30px;
+		}
+		#tabs-1{
+			height:500px;
+		}
+		#tabs-2{
+			height:500px;
+			
+		}
+		.headtype{
+			font-weight: bold;
+		}
+		.fakewindowcontain2{
+			background-color: #e6e6e6;
+		}
+		.pageTitle{
+			
+			font-weight: bold;
+		}
+	</style>
+	</head>
+	<body>
+		<div class = "mainBody">
+			<div id = "header">
+				<div id = "uploadHeadDiv">
+					<span class = "site1"><h1 id = "uploadHead">Brick Upload</h1></span>
+					<span class = "site2"><h3 id = "uploadHead2">Make By YourSelf</h3></span>
+				</div>
+				<div class = "link"><a href="#" class = "linka" onclick = 'location.replace("main.jsp");'>Go Back</a></div>
+			</div>
+			<div id="tabs">
+				<ul class = "tabsite">
+					<li class = "lisite"><a href="#tabs-1">Introduction</a></li>
+					<li class = "lisite2"><a href="#tabs-2">Format</a></li>
+					<li class = "lisite3"><a href="#tabs-3">Upload now!</a></li>
+				</ul>
+				<div id="tabs-1">
+					<div style="position: relative; width: 96%; height: 400px; padding:1% 2%; overflow:hidden;" class="fakewindowcontain">
+						<h1>Brick </h1>
+						<p>We hope eveyone can use their own brick application to let their live more convenient </p>
+						<p>Brick 的原理</p>
+
+						<!-- ui-dialog -->
+						<div class="ui-overlay"><div class="ui-widget-overlay"></div></div>
+						
+
+					</div>
+				</div>
+				<div id="tabs-2">
+					<div style="position: relative; width: 96%; height: 400px; padding:1% 2%; overflow:hidden;" class="fakewindowcontain2">
+						<h1><span class = 'pageTitle'>The Format </span></h1>
+						<p><span class = 'pageTitle'>We hope your file have:</span></p>
+						<p><span class = 'pageTitle'>JSON </span>: (to let us know about the information of your brick) <a href ="">clik me to download the JSON's Format</a></p>
+						<p><span class = 'pageTitle'>Your Brick's IMG </span>: (It can let your brick show the special Style to user before they choice) </p>
+						<p><span class = 'pageTitle'>Your Brick Program </span>: (It is your brick's main body)</p>
+						<!-- ui-dialog -->
+					</div>
+				</div>
+				<div id="tabs-3">
+					<form name="UploadForm" enctype="multipart/form-data" method="post" action="TEST.jsp"  accept-charset="big5" data-ajax="false">
+						<div>
+							<div>
+								<label for="textinput1" class = "headtype" >
+									Brick Name:
+								</label>
+							</div><br>
+							<input name="BrickName"   type="text" data-mini="true" size = "35%">
+						</div><br>
+						<div>
+							<div>
+								<label for="textinput1" class = "headtype" >
+								Brick Type:
+								</label>
+							</div><br>
+							<input name=""   type="text" data-mini="true"  size = "35%">
+						</div><br>
+						<div>
+							<div>
+								<label for="textinput1" class = "headtype" >
+									Brick Description:
+								</label>
+							</div><br>
+								<textarea name=""   type="text" data-mini="true" cols="37" rows="6"></textarea>
+						</div><br>
+							<div>
+								<label for="textinput1" class = "headtype" >Upload Your File</label>
+									<br>
+									<input type="file" class="file" >
+							</div><br>
+						<br><br>
+						<input id = "button"  type="submit" value="Submit" onClick = "check2_data()">
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

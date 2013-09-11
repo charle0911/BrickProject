@@ -1,0 +1,91 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width initial-scale=1" />
+		<title>WidgetTest</title>
+		<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+		<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+		<script type="text/javascript">
+			function changPage(){
+				location.replace("Log_In.jsp");
+			}
+			function check_data()
+			{
+				
+				if(document.myJoinForm.account.value.length < 4){
+					alert("account need four word");
+					return false;
+					}
+				else if(document.myJoinForm.password.value.length < 4){
+					alert("password need four word");
+					return false;
+					}
+				else if(document.myJoinForm.rePassword.value.length == 0){
+					alert("confirmpassword can't space");
+					return false;
+					}
+				else if(document.myJoinForm.rePassword.value != document.myJoinForm.password.value){
+					alert("password and your confirmpassword are different");
+					return false;
+					}
+				else{
+					var user_account = $("#regAccount").val();
+					var user_password = $("#regPassword").val();
+					$.post("AccountService" ,{calledFor:"register",account:user_account,password:user_password}, function(success) 
+					{
+						alert(success);	
+						if(success == 'true'){
+							alert("Congratulation!");
+							location.replace("Log_In.jsp");
+						}
+						else
+							alert(success);
+					});
+				}
+			}
+		</script>
+		<style type = "text/css">
+			.content { font-size:.8em;}
+		</style>
+	</head>
+	<body>
+		<div data-role="page" id="page2">
+			<div data-theme="b" data-role="header">
+			<a data-role="button" data-transition="none" href="" data-icon="arrow-l"
+			data-iconpos="left" class="ui-btn-left"	onClick = 'changPage()'>
+				back
+			</a>
+			<h4>
+				Register
+			</h4>
+			</div>
+			<div data-role="content">
+				<h4>
+					Register
+				</h4>
+				<form action = "" method = "post" name = "myJoinForm">
+					<div data-role="fieldcontain">
+						<label for="regAccount" class = "headtype">
+							Account:
+						</label>
+						<input name="account" id="regAccount" placeholder="" value="" type="text" data-mini="true">
+					</div>
+					<div data-role="fieldcontain">
+						<label for="regPassword" class = "headtype">
+							Password:
+						</label>
+						<input name="password" id="regPassword" placeholder="" value="" type="password" data-mini="true">
+					</div>
+					<div data-role="fieldcontain">
+						<label for="rePass" class = "headtype">
+							Confirm your password:
+						</label>
+						<input name="rePassword" id="rePass" placeholder="" value="" type="password" data-mini="true">
+					</div>
+					<input type="button" value="Submit" onClick = "check_data()">
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

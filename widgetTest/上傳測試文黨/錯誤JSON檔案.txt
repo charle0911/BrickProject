@@ -1,0 +1,21 @@
+{
+	"brickBasicData": 
+		{
+          
+            ],
+            "inputEvent": [
+                {
+                    "id": "",
+                    "event": ""
+                }
+            ],
+			"kernalResourceProvider": [{
+				"id": "search song",
+				"url": "http://"
+			}],
+			"optionalResourceProvider": [{
+				"id": "click times",
+				"url": "http://"
+			}]
+        }
+}

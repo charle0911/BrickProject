@@ -1,0 +1,28 @@
+{
+	"brick": 
+		{
+            "id": "b0002",
+            "name": "Singer",
+            "outputEvent": [
+                {
+                    "trigger": "search",
+                    "id": "oe01",
+                    "event": "singerName"
+                }
+            ],
+            "inputEvent": [
+                {
+                    "id": "ie01",
+                    "event": "songName"
+                }
+            ],
+			"kernalResourceProvider": [{
+				"id": "search song",
+				"url": "http://"
+			}],
+			"optionalResourceProvider": [{
+				"id": "click times",
+				"url": "http://"
+			}]
+        }
+}
